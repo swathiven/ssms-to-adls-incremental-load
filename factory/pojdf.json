@@ -1,0 +1,9 @@
+{
+	"name": "pojdf",
+	"location": "australiaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cc949af4-e697-441f-8639-ac6f38b15788",
+		"tenantId": "637e6c1d-10ab-4258-92b1-9783d1406909"
+	}
+}
