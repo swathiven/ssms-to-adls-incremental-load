@@ -3,19 +3,7 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Stopped",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "pl_copydata_adls_adls_usingmapping in copy activity",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"inputfilename": "BulkRun",
-					"outputfilename": "BulkRun",
-					"folderpath": "@triggerBody().folderPath"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
 			"blobPathBeginsWith": "/data/blobs/input/",
