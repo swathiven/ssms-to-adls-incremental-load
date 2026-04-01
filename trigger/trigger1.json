@@ -2,7 +2,7 @@
 	"name": "trigger1",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {
@@ -12,18 +12,6 @@
 				"parameters": {
 					"body": "@triggerBody().filePath",
 					"file": "@triggerBody().fileName"
-				}
-			},
-			{
-				"pipelineReference": {
-					"referenceName": "pl_copydata_adls_adls_usingmapping in copy activity",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"inputfilename": "BulkRun",
-					"outputfilename": "BulkRun",
-					"folderpath": "@triggerBody()..folderPath",
-					"filename": "@triggerBody().fileName"
 				}
 			}
 		],
