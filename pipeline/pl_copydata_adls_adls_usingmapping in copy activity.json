@@ -46,7 +46,7 @@
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
 							"quoteAllText": true,
-							"fileExtension": ".txt"
+							"fileExtension": ""
 						}
 					},
 					"enableStaging": false,
@@ -61,7 +61,7 @@
 								"referenceName": "ls_adls",
 								"type": "LinkedServiceReference"
 							},
-							"path": "data/ouput"
+							"path": "data/input"
 						}
 					},
 					"translator": {
