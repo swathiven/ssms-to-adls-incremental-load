@@ -65,11 +65,11 @@
 		},
 		"trigger2_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_inputfilename": {
 			"type": "string",
-			"defaultValue": "@triggerBody().fileName"
+			"defaultValue": "BulkRun"
 		},
 		"trigger2_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_outputfilename": {
 			"type": "string",
-			"defaultValue": "@triggerBody().fileName"
+			"defaultValue": "BulkRun"
 		},
 		"trigger2_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_folderpath": {
 			"type": "string",

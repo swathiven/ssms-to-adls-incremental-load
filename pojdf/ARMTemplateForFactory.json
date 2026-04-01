@@ -65,11 +65,11 @@
 		},
 		"trigger2_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_inputfilename": {
 			"type": "string",
-			"defaultValue": "@triggerBody().fileName"
+			"defaultValue": "BulkRun"
 		},
 		"trigger2_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_outputfilename": {
 			"type": "string",
-			"defaultValue": "@triggerBody().fileName"
+			"defaultValue": "BulkRun"
 		},
 		"trigger2_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_folderpath": {
 			"type": "string",
@@ -216,7 +216,9 @@
 								"type": "DelimitedTextSource",
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
-									"recursive": true,
+									"recursive": false,
+									"wildcardFolderPath": "input",
+									"wildcardFileName": "*.csv",
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
@@ -643,7 +645,7 @@
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
 					"blobPathBeginsWith": "/data/blobs/input/",
-					"blobPathEndsWith": ".csv",
+					"blobPathEndsWith": ".txt",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('trigger2_properties_typeProperties_scope')]",
 					"events": [
