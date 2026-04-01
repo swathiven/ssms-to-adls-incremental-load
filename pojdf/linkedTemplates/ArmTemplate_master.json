@@ -73,7 +73,7 @@
 		},
 		"trigger2_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_folderpath": {
 			"type": "string",
-			"defaultValue": "@triggerBody().filePath"
+			"defaultValue": "@triggerBody().folderPath"
 		},
 		"trigger2_properties_typeProperties_scope": {
 			"type": "string",
