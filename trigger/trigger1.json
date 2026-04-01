@@ -11,7 +11,8 @@
 				},
 				"parameters": {
 					"body": "@string(triggerBody())",
-					"file": "@triggerBody()"
+					"file": "@triggerBody()",
+					"folder": "@triggerBody()"
 				}
 			}
 		],

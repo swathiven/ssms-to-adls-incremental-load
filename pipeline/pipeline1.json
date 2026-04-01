@@ -23,6 +23,9 @@
 			},
 			"file": {
 				"type": "string"
+			},
+			"folder": {
+				"type": "object"
 			}
 		},
 		"variables": {
