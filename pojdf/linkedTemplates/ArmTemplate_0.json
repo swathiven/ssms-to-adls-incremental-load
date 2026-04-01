@@ -53,15 +53,27 @@
 		},
 		"trigger1_properties_pipeline1_parameters_body": {
 			"type": "string",
-			"defaultValue": "@string(triggerBody())"
+			"defaultValue": "@triggerBody().filePath"
 		},
 		"trigger1_properties_pipeline1_parameters_file": {
 			"type": "string",
-			"defaultValue": "@triggerBody()"
+			"defaultValue": "@triggerBody().fileName"
 		},
-		"trigger1_properties_pipeline1_parameters_folder": {
+		"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_inputfilename": {
 			"type": "string",
-			"defaultValue": "@triggerBody()"
+			"defaultValue": "BulkRun"
+		},
+		"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_outputfilename": {
+			"type": "string",
+			"defaultValue": "BulkRun"
+		},
+		"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_folderpath": {
+			"type": "string",
+			"defaultValue": "@triggerBody()..folderPath"
+		},
+		"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_filename": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
 		},
 		"trigger1_properties_typeProperties_scope": {
 			"type": "string",
@@ -284,7 +296,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"outputfilename": {
+					"filename": {
 						"type": "string"
 					}
 				},
@@ -368,41 +380,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime2')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/trigger1')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipeline1",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"body": "[parameters('trigger1_properties_pipeline1_parameters_body')]",
-							"file": "[parameters('trigger1_properties_pipeline1_parameters_file')]",
-							"folder": "[parameters('trigger1_properties_pipeline1_parameters_folder')]"
-						}
-					}
-				],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/data/blobs/input/",
-					"blobPathEndsWith": ".csv",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('trigger1_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/pipeline1')]"
 			]
 		},
 		{
@@ -493,7 +470,7 @@
 								"type": "DelimitedTextSource",
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
-									"recursive": false,
+									"recursive": true,
 									"wildcardFolderPath": "input",
 									"wildcardFileName": "*.csv",
 									"enablePartitionDiscovery": false
@@ -525,7 +502,7 @@
 										"referenceName": "ls_adls",
 										"type": "LinkedServiceReference"
 									},
-									"path": "data/input"
+									"path": "data/ouput"
 								}
 							},
 							"translator": {
@@ -624,7 +601,7 @@
 								"referenceName": "ds_adls_target",
 								"type": "DatasetReference",
 								"parameters": {
-									"outputfilename": {
+									"filename": {
 										"value": "@pipeline().parameters.outputfilename",
 										"type": "Expression"
 									}
@@ -645,6 +622,9 @@
 					},
 					"folderpath": {
 						"type": "string"
+					},
+					"filename": {
+						"type": "string"
 					}
 				},
 				"annotations": []
@@ -653,6 +633,53 @@
 				"[concat(variables('factoryId'), '/datasets/ds_adls_source')]",
 				"[concat(variables('factoryId'), '/datasets/ds_adls_target')]",
 				"[concat(variables('factoryId'), '/linkedServices/ls_adls')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipeline1",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"body": "[parameters('trigger1_properties_pipeline1_parameters_body')]",
+							"file": "[parameters('trigger1_properties_pipeline1_parameters_file')]"
+						}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "pl_copydata_adls_adls_usingmapping in copy activity",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"inputfilename": "[parameters('trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_inputfilename')]",
+							"outputfilename": "[parameters('trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_outputfilename')]",
+							"folderpath": "[parameters('trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_folderpath')]",
+							"filename": "[parameters('trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_filename')]"
+						}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/data/blobs/input/",
+					"blobPathEndsWith": ".txt",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('trigger1_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipeline1')]",
+				"[concat(variables('factoryId'), '/pipelines/pl_copydata_adls_adls_usingmapping in copy activity')]"
 			]
 		},
 		{

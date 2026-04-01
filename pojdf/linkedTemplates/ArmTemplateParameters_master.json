@@ -36,13 +36,22 @@
 			"value": "adf_user"
 		},
 		"trigger1_properties_pipeline1_parameters_body": {
-			"value": "@string(triggerBody())"
+			"value": "@triggerBody().filePath"
 		},
 		"trigger1_properties_pipeline1_parameters_file": {
-			"value": "@triggerBody()"
+			"value": "@triggerBody().fileName"
 		},
-		"trigger1_properties_pipeline1_parameters_folder": {
-			"value": "@triggerBody()"
+		"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_inputfilename": {
+			"value": "BulkRun"
+		},
+		"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_outputfilename": {
+			"value": "BulkRun"
+		},
+		"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_folderpath": {
+			"value": "@triggerBody()..folderPath"
+		},
+		"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_filename": {
+			"value": "@triggerBody().fileName"
 		},
 		"trigger1_properties_typeProperties_scope": {
 			"value": "/subscriptions/435059ae-f4a8-4963-b132-361a892d8586/resourceGroups/proman/providers/Microsoft.Storage/storageAccounts/projectstorage321"

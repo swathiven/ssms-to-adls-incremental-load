@@ -49,15 +49,27 @@
 		},
 		"trigger1_properties_pipeline1_parameters_body": {
 			"type": "string",
-			"defaultValue": "@string(triggerBody())"
+			"defaultValue": "@triggerBody().filePath"
 		},
 		"trigger1_properties_pipeline1_parameters_file": {
 			"type": "string",
-			"defaultValue": "@triggerBody()"
+			"defaultValue": "@triggerBody().fileName"
 		},
-		"trigger1_properties_pipeline1_parameters_folder": {
+		"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_inputfilename": {
 			"type": "string",
-			"defaultValue": "@triggerBody()"
+			"defaultValue": "BulkRun"
+		},
+		"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_outputfilename": {
+			"type": "string",
+			"defaultValue": "BulkRun"
+		},
+		"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_folderpath": {
+			"type": "string",
+			"defaultValue": "@triggerBody()..folderPath"
+		},
+		"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_filename": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
 		},
 		"trigger1_properties_typeProperties_scope": {
 			"type": "string",
@@ -149,8 +161,17 @@
 					"trigger1_properties_pipeline1_parameters_file": {
 						"value": "[parameters('trigger1_properties_pipeline1_parameters_file')]"
 					},
-					"trigger1_properties_pipeline1_parameters_folder": {
-						"value": "[parameters('trigger1_properties_pipeline1_parameters_folder')]"
+					"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_inputfilename": {
+						"value": "[parameters('trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_inputfilename')]"
+					},
+					"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_outputfilename": {
+						"value": "[parameters('trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_outputfilename')]"
+					},
+					"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_folderpath": {
+						"value": "[parameters('trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_folderpath')]"
+					},
+					"trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_filename": {
+						"value": "[parameters('trigger1_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_filename')]"
 					},
 					"trigger1_properties_typeProperties_scope": {
 						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
