@@ -17,6 +17,14 @@
 				}
 			}
 		],
+		"parameters": {
+			"body": {
+				"type": "string"
+			},
+			"file": {
+				"type": "string"
+			}
+		},
 		"variables": {
 			"TriggerBody": {
 				"type": "String"
