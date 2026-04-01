@@ -55,6 +55,10 @@
 			"type": "string",
 			"defaultValue": "@triggerBody()"
 		},
+		"trigger1_properties_pipeline1_parameters_folder": {
+			"type": "string",
+			"defaultValue": "@triggerBody()"
+		},
 		"trigger1_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/435059ae-f4a8-4963-b132-361a892d8586/resourceGroups/proman/providers/Microsoft.Storage/storageAccounts/projectstorage321"
@@ -94,6 +98,9 @@
 					},
 					"file": {
 						"type": "string"
+					},
+					"folder": {
+						"type": "object"
 					}
 				},
 				"variables": {
@@ -341,7 +348,8 @@
 						},
 						"parameters": {
 							"body": "[parameters('trigger1_properties_pipeline1_parameters_body')]",
-							"file": "[parameters('trigger1_properties_pipeline1_parameters_file')]"
+							"file": "[parameters('trigger1_properties_pipeline1_parameters_file')]",
+							"folder": "[parameters('trigger1_properties_pipeline1_parameters_folder')]"
 						}
 					}
 				],

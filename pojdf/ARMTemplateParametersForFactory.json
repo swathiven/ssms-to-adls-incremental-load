@@ -41,6 +41,9 @@
 		"trigger1_properties_pipeline1_parameters_file": {
 			"value": "@triggerBody()"
 		},
+		"trigger1_properties_pipeline1_parameters_folder": {
+			"value": "@triggerBody()"
+		},
 		"trigger1_properties_typeProperties_scope": {
 			"value": "/subscriptions/435059ae-f4a8-4963-b132-361a892d8586/resourceGroups/proman/providers/Microsoft.Storage/storageAccounts/projectstorage321"
 		}
