@@ -144,13 +144,25 @@
 				"inputs": [
 					{
 						"referenceName": "ds_adls_source",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"inputfilename": {
+								"value": "@pipeline().parameters.inputfilename",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_adls_target",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"outputfilename": {
+								"value": "@pipeline().parameters.targetfilename",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
