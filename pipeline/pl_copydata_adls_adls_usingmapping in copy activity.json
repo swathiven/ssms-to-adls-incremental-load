@@ -144,39 +144,17 @@
 				"inputs": [
 					{
 						"referenceName": "ds_adls_source",
-						"type": "DatasetReference",
-						"parameters": {
-							"inputfilename": {
-								"value": "@pipeline().parameters.inputfilename",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "ds_adls_target",
-						"type": "DatasetReference",
-						"parameters": {
-							"filename": {
-								"value": "@pipeline().parameters.outputfilename",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				]
 			}
 		],
-		"parameters": {
-			"inputfilename": {
-				"type": "string",
-				"defaultValue": "products.csv"
-			},
-			"outputfilename": {
-				"type": "string",
-				"defaultValue": "prod.csv"
-			}
-		},
 		"annotations": []
 	}
 }
