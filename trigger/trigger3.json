@@ -12,7 +12,8 @@
 				"parameters": {
 					"inputfilename": "BulkRun",
 					"outputfilename": "BulkRun",
-					"folderpath": "@triggerBody().filePath"
+					"folderpath": "@triggerBody().folderPath",
+					"filename": "@triggerBody().fileName"
 				}
 			}
 		],
