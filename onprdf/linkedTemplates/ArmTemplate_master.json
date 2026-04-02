@@ -67,25 +67,9 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/435059ae-f4a8-4963-b132-361a892d8586/resourceGroups/proman/providers/Microsoft.Storage/storageAccounts/projectstorage321"
 		},
-		"trigger4_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_inputfilename": {
-			"type": "string",
-			"defaultValue": "BulkRun"
-		},
-		"trigger4_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_outputfilename": {
-			"type": "string",
-			"defaultValue": "BulkRun"
-		},
-		"trigger4_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_folderpath": {
-			"type": "string",
-			"defaultValue": "@triggerBody().folderPath"
-		},
-		"trigger4_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_filename": {
-			"type": "string",
-			"defaultValue": "@triggerBody().fileName"
-		},
 		"trigger4_properties_typeProperties_scope": {
 			"type": "string",
-			"defaultValue": "/subscriptions/435059ae-f4a8-4963-b132-361a892d8586/resourceGroups/proman/providers/Microsoft.Storage/storageAccounts/projectstorage321"
+			"defaultValue": "/subscriptions/435059ae-f4a8-4963-b132-361a892d8586/resourceGroups/onpro/providers/Microsoft.Storage/storageAccounts/projectstorage321"
 		},
 		"containerUri": {
 			"type": "string",
@@ -158,18 +142,6 @@
 					},
 					"trigger1_properties_typeProperties_scope": {
 						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
-					},
-					"trigger4_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_inputfilename": {
-						"value": "[parameters('trigger4_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_inputfilename')]"
-					},
-					"trigger4_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_outputfilename": {
-						"value": "[parameters('trigger4_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_outputfilename')]"
-					},
-					"trigger4_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_folderpath": {
-						"value": "[parameters('trigger4_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_folderpath')]"
-					},
-					"trigger4_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_filename": {
-						"value": "[parameters('trigger4_properties_pl_copydata_adls_adls_usingmapping in copy activity_parameters_filename')]"
 					},
 					"trigger4_properties_typeProperties_scope": {
 						"value": "[parameters('trigger4_properties_typeProperties_scope')]"
