@@ -16,11 +16,8 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "ds_adls_source",
-						"type": "DatasetReference",
-						"parameters": {
-							"inputfilename": "NULL"
-						}
+						"referenceName": "ds_adls_source_folderconnection",
+						"type": "DatasetReference"
 					},
 					"fieldList": [
 						"exists",
@@ -29,6 +26,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
