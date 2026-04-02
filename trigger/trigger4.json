@@ -10,8 +10,6 @@
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"inputfilename": "BulkRun",
-					"outputfilename": "BulkRun",
 					"folderpath": "@triggerBody().folderPath",
 					"filename": "@triggerBody().fileName"
 				}

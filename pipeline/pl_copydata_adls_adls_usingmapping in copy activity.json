@@ -29,7 +29,7 @@
 						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
+							"recursive": false,
 							"wildcardFolderPath": "input",
 							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
@@ -41,8 +41,7 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings",
-							"copyBehavior": "PreserveHierarchy"
+							"type": "AzureBlobFSWriteSettings"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -147,13 +146,7 @@
 				"inputs": [
 					{
 						"referenceName": "ds_adls_source",
-						"type": "DatasetReference",
-						"parameters": {
-							"inputfilename": {
-								"value": "@pipeline().parameters.inputfilename",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
@@ -165,12 +158,6 @@
 			}
 		],
 		"parameters": {
-			"inputfilename": {
-				"type": "string"
-			},
-			"outputfilename": {
-				"type": "string"
-			},
 			"folderpath": {
 				"type": "string"
 			},
