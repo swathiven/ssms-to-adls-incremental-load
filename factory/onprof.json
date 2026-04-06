@@ -1,0 +1,9 @@
+{
+	"name": "onprof",
+	"location": "australiaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "97f7f52c-dfff-4f5e-bd2e-929ebfe1f5a6",
+		"tenantId": "637e6c1d-10ab-4258-92b1-9783d1406909"
+	}
+}
