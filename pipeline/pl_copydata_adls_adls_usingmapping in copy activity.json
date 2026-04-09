@@ -120,12 +120,10 @@
 										{
 											"source": {
 												"type": "String",
-												"physicalType": "String",
 												"ordinal": 3
 											},
 											"sink": {
 												"type": "String",
-												"physicalType": "String",
 												"ordinal": 1
 											}
 										},
@@ -136,19 +134,16 @@
 											},
 											"sink": {
 												"type": "String",
-												"physicalType": "String",
 												"ordinal": 2
 											}
 										},
 										{
 											"source": {
 												"type": "String",
-												"physicalType": "String",
 												"ordinal": 1
 											},
 											"sink": {
 												"type": "String",
-												"physicalType": "String",
 												"ordinal": 3
 											}
 										},
@@ -159,7 +154,6 @@
 											},
 											"sink": {
 												"type": "String",
-												"physicalType": "String",
 												"ordinal": 4
 											}
 										},
@@ -170,7 +164,6 @@
 											},
 											"sink": {
 												"type": "String",
-												"physicalType": "String",
 												"ordinal": 5
 											}
 										},
@@ -181,16 +174,10 @@
 											},
 											"sink": {
 												"type": "String",
-												"physicalType": "String",
 												"ordinal": 6
 											}
 										}
-									],
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
+									]
 								}
 							},
 							"inputs": [
@@ -200,18 +187,6 @@
 									"parameters": {
 										"inputfilename": {
 											"value": "@item().name",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "ds_adls_target",
-									"type": "DatasetReference",
-									"parameters": {
-										"oupufilename": {
-											"value": "@replace(item().name, 's.csv', '.csv')",
 											"type": "Expression"
 										}
 									}

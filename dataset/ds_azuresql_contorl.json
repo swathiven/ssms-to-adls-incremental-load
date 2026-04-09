@@ -1,0 +1,30 @@
+{
+	"name": "ds_azuresql_contorl",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_azuresql",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"controltable_schema": {
+				"type": "string"
+			},
+			"control_tabelname": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().controltable_schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().control_tabelname",
+				"type": "Expression"
+			}
+		}
+	}
+}
